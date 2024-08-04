@@ -1,0 +1,23 @@
+def is_armstrong(number):
+    # Convert the number to string to easily iterate over digits
+    num_str = str(number)
+    num_digits = len(num_str)
+    sum_of_powers = sum(int(digit) ** num_digits for digit in num_str)
+    
+    # Check if the sum of the powers of digits is equal to the number
+    return number == sum_of_powers
+
+def generate_armstrong_numbers(start, end):
+    armstrong_numbers = []
+    for number in range(start, end + 1):
+        if is_armstrong(number):
+            armstrong_numbers.append(number)
+    return armstrong_numbers
+
+# Input range from user
+start_range = int(input("Enter the start of the range: "))
+end_range = int(input("Enter the end of the range: "))
+
+# Generate and print Armstrong numbers within the range
+armstrong_numbers = generate_armstrong_numbers(start_range, end_range)
+print(f"Armstrong numbers between {start_range} and {end_range}: {armstrong_numbers}")
